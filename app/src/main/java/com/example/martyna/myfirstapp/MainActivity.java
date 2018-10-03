@@ -28,12 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
         myButton = (Button) findViewById(R.id.button);
         secondActivityButton = (Button) findViewById(R.id.secondActivityButton);
-        mytextField = (TextView) findViewById(R.id.textfield);//???
+        mytextField = (TextView) findViewById(R.id.textfield);
 
         myButton.setOnClickListener(myButtonClick);
         secondActivityButton.setOnClickListener(startSecondActivity);
         secondActivityButton.setOnLongClickListener(startSecondActivityLong);
-
     }
 
     View.OnClickListener myButtonClick = new View.OnClickListener() {
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void runSecondActivity(boolean b) {
         Intent intent = new Intent(context, SecondActivity.class);
-        intent.putExtra("flag", b);
+        intent.putExtra("flag",b);
         context.startActivity(intent);
     }
 
