@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import java.util.List;
 import java.util.ArrayList;
 
+
 public class SecondActivity extends AppCompatActivity {
     private ListView mylist;
     private ListAdapter adapter;

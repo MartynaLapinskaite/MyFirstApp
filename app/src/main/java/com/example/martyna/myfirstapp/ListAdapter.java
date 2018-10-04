@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class ListAdapter extends ArrayAdapter<ListItem> {
 
