@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //myButton = (Button) findViewById(R.id.button);
+//
+        myButton = (Button) findViewById(R.id.button);
         secondActivityButton = (Button) findViewById(R.id.secondActivityButton);
         mytextField = (TextView) findViewById(R.id.textfield);
-
-        //myButton.setOnClickListener(myButtonClick);
+//
+        myButton.setOnClickListener(myButtonClick);
         secondActivityButton.setOnClickListener(startSecondActivity);
         secondActivityButton.setOnLongClickListener(startSecondActivityLong);
     }
