@@ -1,6 +1,8 @@
 package com.example.martyna.myfirstapp;
 
-public class ListItem {
+import java.io.Serializable;
+
+public class ListItem implements Serializable{
     private String title;
     private int imageId;
     private String description;
