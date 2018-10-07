@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText title;
     private EditText desription;///
     private Button ad;///
+    private Button image;
 
 
 
@@ -60,15 +61,26 @@ public class MainActivity extends AppCompatActivity {
 
         ad.setOnClickListener(addClick);
 
+        image =(Button)findViewById(R.id.image);
+
+        image.setOnClickListener(imageClick);
 
     }
 
     View.OnClickListener addClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            nauji.add(new ListItem(title.getText().toString(),R.drawable.ic_account_box_black_24dp,desription.getText().toString()));
+            nauji.add(new ListItem(title.getText().toString(),R.drawable.ic_fiber_new_black_24dp,desription.getText().toString()));
         }
     };
+    View.OnClickListener imageClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(context, Image.class);
+            context.startActivity(intent);
+        }
+    };
+
 
 
 
@@ -92,6 +104,16 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             items = new ArrayList<>();
+            items.add(new ListItem("Jack",R.drawable.ic_3d_rotation_black_24dp,"Mathematics, Chemistry"));
+            items.add(new ListItem("Jane",R.drawable.ic_sms_failed_black_24dp,"Physics, Informatics"));
+            items.add(new ListItem("Bob",R.drawable.ic_alarm_black_24dp,"Mathematics, Informatics"));
+            items.add(new ListItem("Clara", R.drawable.ic_account_box_black_24dp,"Geography, Chemistry"));
+            items.add(new ListItem("Sam",R.drawable.ic_accessibility_black_24dp,"Mathematics, Physics"));
+            items.add(new ListItem("Jack",R.drawable.ic_3d_rotation_black_24dp,"Mathematics, Chemistry"));
+            items.add(new ListItem("Jane",R.drawable.ic_sms_failed_black_24dp,"Physics, Informatics"));
+            items.add(new ListItem("Bob",R.drawable.ic_alarm_black_24dp,"Mathematics, Informatics"));
+            items.add(new ListItem("Clara", R.drawable.ic_account_box_black_24dp,"Geography, Chemistry"));
+            items.add(new ListItem("Sam",R.drawable.ic_accessibility_black_24dp,"Mathematics, Physics"));
             items.add(new ListItem("Jack",R.drawable.ic_3d_rotation_black_24dp,"Mathematics, Chemistry"));
             items.add(new ListItem("Jane",R.drawable.ic_sms_failed_black_24dp,"Physics, Informatics"));
             items.add(new ListItem("Bob",R.drawable.ic_alarm_black_24dp,"Mathematics, Informatics"));
