@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--  -->
-    <Button android:id="@+id/button"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/button" />
-   <!-- -->
+    <!--
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button" />
+   -->
 
 
 
@@ -31,7 +32,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="title" />
+            android:text="@string/title"
+            android:autofillHints="" tools:targetApi="o"/>
 
         <EditText
             android:id="@+id/desciption"
@@ -40,27 +42,40 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="description" />
+            android:text="@string/description"
+            android:importantForAutofill="no" tools:targetApi="o" />
 
         <Button
             android:id="@+id/add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="add" />
+            android:text="@string/add" />
+
     </LinearLayout>
+
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textfield"
+            android:id="@+id/addplace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/textfield" />
+            android:text=""
+            android:textSize="18sp" />
 
-    </ScrollView>
+        <!--
+                <TextView
+                    android:id="@+id/textfield"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textfield" />
+         -->
+
+     </ScrollView>
 
 
 </LinearLayout>

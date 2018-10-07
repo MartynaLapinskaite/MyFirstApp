@@ -3,4 +3,7 @@
     <string name="button">Button</string>
     <string name="secondActivityButton">Second Activity</string>
     <string name="textfield">Text Field</string>
+    <string name="add">add</string>
+    <string name="title">title</string>
+    <string name="description">description</string>
 </resources>
