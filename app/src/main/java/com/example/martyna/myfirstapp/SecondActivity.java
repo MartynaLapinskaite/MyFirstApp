@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class SecondActivity extends AppCompatActivity {
     private ListView mylist;
     private ListAdapter adapter;
-    private List<ListItem> items;
+    private List<ListItem> items, nauji;
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -29,10 +29,17 @@ public class SecondActivity extends AppCompatActivity {
         mylist = (ListView) findViewById(R.id.listView);
         items = new ArrayList<>();
         List<ListItem> items= new ArrayList<>();
+        List<ListItem> nauji= new ArrayList<>();
         Intent intent = getIntent();
         if(intent.getBooleanExtra("flag",true)){
             Bundle bundle = intent.getExtras();
             items = (List<ListItem>) bundle.getSerializable("list");
+            nauji =(List<ListItem>) bundle.getSerializable("nauji");
+            if(nauji.size()!=0){
+                for(int i=0; i<nauji.size(); i++){
+                    items.add(nauji.get(i));
+                }
+            }
 
             //items.add(new ListItem("Jack",R.drawable.ic_3d_rotation_black_24dp,"Mathematics, Chemistry"));
             //items.add(new ListItem("Jane",R.drawable.ic_sms_failed_black_24dp,"Physics, Informatics"));

@@ -31,13 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView mytextField;
     private Button secondActivityButton;
     private Context context = this;
-    private List<ListItem> items, addd;
-    private EditText title;///
+    private List<ListItem> items, nauji;
+    private EditText title;
     private EditText desription;///
     private Button ad;///
-    private TextView addplace; ////
-    private ArrayAdapter<String> adapter;
-    private ArrayList<String> arrayList;
+
 
 
     @Override
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         items = new ArrayList<>();
-        addd = new ArrayList<>();
+        nauji =new ArrayList<>();
 //
         //myButton = (Button) findViewById(R.id.button);
         secondActivityButton = (Button) findViewById(R.id.secondActivityButton);
@@ -59,38 +57,23 @@ public class MainActivity extends AppCompatActivity {
         title = (EditText) findViewById(R.id.title);
         desription =(EditText) findViewById(R.id.desciption);
         ad = (Button) findViewById(R.id.add);
-        addplace=(TextView) findViewById(R.id.addplace);
 
-        arrayList = new ArrayList<String>();
-        adapter=new ArrayAdapter<String>(MainActivity.this, android.R.layout.activity_list_item, arrayList);
+        ad.setOnClickListener(addClick);
 
-        //addplace.setAdapter(adapter);
 
-        onBtnClick();
     }
 
-    public void onBtnClick(){
-        ad.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addplace.setText(addplace.getText() + "\n" + title.getText().toString() + "\n"+desription.getText().toString());
-                //String result = title.getText().toString() + "\n"+desription.getText().toString();
-                //addplace.setText(result);
-                //arrayList.add(result);
-                //adapter.notifyDataSetChanged();
-            }
-        });
-    }
-/*
     View.OnClickListener addClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            List<ListItem> addd= new ArrayList<>();
-
-            addd.add(new ListItem(title.getText().toString(),R.drawable.ic_3d_rotation_black_24dp,desription.getText().toString()));
+            nauji.add(new ListItem(title.getText().toString(),R.drawable.ic_account_box_black_24dp,desription.getText().toString()));
         }
     };
-*//*
+
+
+
+
+/*
     View.OnClickListener myButtonClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -126,16 +109,15 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private void runSecondActivity(boolean b)
-    {
+    private void runSecondActivity(boolean b) {
         Intent intent = new Intent(context, SecondActivity.class);
         intent.putExtra("flag",b);
         Bundle bundle = new Bundle();
         bundle.putSerializable("list", (Serializable) items);
-
+        bundle.putSerializable("nauji", (Serializable) nauji);
         intent.putExtras(bundle);
         context.startActivity(intent);
-
-
     }
+
+
 }
