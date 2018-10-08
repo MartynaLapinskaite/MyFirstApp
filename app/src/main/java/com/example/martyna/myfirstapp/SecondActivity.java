@@ -3,6 +3,7 @@ package com.example.martyna.myfirstapp;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ListView;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -21,6 +23,7 @@ public class SecondActivity extends AppCompatActivity {
     private ListView mylist;
     private ListAdapter adapter;
     private List<ListItem> items, nauji;
+    private Context context = this;
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -31,6 +34,12 @@ public class SecondActivity extends AppCompatActivity {
         List<ListItem> items= new ArrayList<>();
         List<ListItem> nauji= new ArrayList<>();
         Intent intent = getIntent();
+
+        //mylist.setOnClickListener(imageClick);
+
+
+
+
         if(intent.getBooleanExtra("flag",true)){
             Bundle bundle = intent.getExtras();
             items = (List<ListItem>) bundle.getSerializable("list");
@@ -69,5 +78,19 @@ public class SecondActivity extends AppCompatActivity {
         }
         adapter = new ListAdapter(this, items);
         mylist.setAdapter(adapter);
+
+        final List<ListItem> finalItems = items;
+        mylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent =new Intent(SecondActivity.this, Image.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Item", finalItems.get(position));
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
     }
+
+
 }

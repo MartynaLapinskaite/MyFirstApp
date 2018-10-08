@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private Context context = this;
     private List<ListItem> items, nauji;
     private EditText title;
-    private EditText desription;///
-    private Button ad;///
+    private EditText desription;
+    private Button ad;
     private Button image;
 
 
@@ -77,13 +77,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(context, Image.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("Item",new ListItem("Autumn",R.drawable.autumn,"Ruduo---Ruduo---Ruduo---Ruduo"));
+            intent.putExtras(bundle);
             context.startActivity(intent);
         }
     };
-
-
-
-
 
 /*
     View.OnClickListener myButtonClick = new View.OnClickListener() {
